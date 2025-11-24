@@ -3,6 +3,7 @@ package com.sundarMan.EmployeeBackEnd.controllers;
 import com.sundarMan.EmployeeBackEnd.Models.Employee;
 import com.sundarMan.EmployeeBackEnd.repos.EmployeeRepo;
 import com.sundarMan.EmployeeBackEnd.services.EmployeeService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,7 +19,7 @@ public class EmployeeController {
     private EmployeeService employeeService;
 
     @PostMapping("/public/registerEmployee")
-    public ResponseEntity<Employee> regEmployee(@RequestBody Employee employee) {
+    public ResponseEntity<Employee> regEmployee(@Valid @RequestBody Employee employee) {
         Employee registeredEmployee = employeeService.registerEmployeeByS(employee);
         return new ResponseEntity<>(registeredEmployee, HttpStatus.OK);
     }
@@ -50,9 +51,8 @@ public class EmployeeController {
 
 
     @GetMapping("/admin/getEmployeeByFirstName/{firstName}")
-    public ResponseEntity<Employee> getEmployee(@PathVariable String firstName)
-    {
-        Employee employee=employeeService.getEmployeeByFNameByC(firstName);
+    public ResponseEntity<Employee> getEmployee(@PathVariable String firstName) {
+        Employee employee = employeeService.getEmployeeByFNameByC(firstName);
         return new ResponseEntity<>(employee, HttpStatus.OK);
 
     }
