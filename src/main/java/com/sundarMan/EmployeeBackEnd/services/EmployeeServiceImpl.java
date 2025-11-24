@@ -29,4 +29,17 @@ public class EmployeeServiceImpl implements EmployeeService {
         return findEmplById.orElse(null);
 
     }
+
+    @Override
+    public String deleteEmployeeByIDByS(String id) {
+        Optional<Employee> employee = employeeRepo.findById(id);
+        if (employee.isPresent()) {
+            employeeRepo.deleteById(id);
+            return "Employee Deleted";
+        } else {
+            return "Employee Not Deleted............";
+        }
+    }
+
+
 }
