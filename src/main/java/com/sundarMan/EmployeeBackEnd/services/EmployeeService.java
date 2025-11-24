@@ -15,4 +15,6 @@ public interface EmployeeService {
     String deleteEmployeeByIDByS(String id);
 
     Employee updateEmployeeByS(String id, Employee newEmployee);
+
+    Employee getEmployeeByFNameByC(String firstName);
 }

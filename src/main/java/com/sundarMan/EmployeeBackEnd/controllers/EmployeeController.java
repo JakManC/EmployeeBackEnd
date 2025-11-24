@@ -48,4 +48,13 @@ public class EmployeeController {
         return new ResponseEntity<>(updatedEmployee, HttpStatus.OK);
     }
 
+
+    @GetMapping("/admin/getEmployeeByFirstName/{firstName}")
+    public ResponseEntity<Employee> getEmployee(@PathVariable String firstName)
+    {
+        Employee employee=employeeService.getEmployeeByFNameByC(firstName);
+        return new ResponseEntity<>(employee, HttpStatus.OK);
+
+    }
+
 }
