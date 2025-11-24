@@ -41,5 +41,24 @@ public class EmployeeServiceImpl implements EmployeeService {
         }
     }
 
+    @Override
+    public Employee updateEmployeeByS(String id, Employee newEmployee) {
+        Optional<Employee> oldEmployee = employeeRepo.findById(id);
+
+        if (oldEmployee.isPresent()) {
+            oldEmployee.get().setFirstName(newEmployee.getFirstName());
+            oldEmployee.get().setFatherName(newEmployee.getFatherName());
+            oldEmployee.get().setSurName(newEmployee.getSurName());
+            employeeRepo.save(oldEmployee.get());
+
+            return oldEmployee.get();
+
+        } else {
+            return null;
+
+        }
+
+    }
+
 
 }

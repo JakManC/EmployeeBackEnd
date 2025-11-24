@@ -37,10 +37,15 @@ public class EmployeeController {
     }
 
     @DeleteMapping("/admin/deleteEmployeeById/{id}")
-    public ResponseEntity<String > deleteEmplByIdByC(@PathVariable String id)
-    {
-        String s=employeeService.deleteEmployeeByIDByS(id);
+    public ResponseEntity<String> deleteEmplByIdByC(@PathVariable String id) {
+        String s = employeeService.deleteEmployeeByIDByS(id);
         return new ResponseEntity<>(s, HttpStatus.OK);
+    }
+
+    @PutMapping("/admin/updateEmployeeById/{id}")
+    public ResponseEntity<Employee> updateEmployeeByIdByC(@PathVariable String id, @RequestBody Employee newEmployee) {
+        Employee updatedEmployee = employeeService.updateEmployeeByS(id, newEmployee);
+        return new ResponseEntity<>(updatedEmployee, HttpStatus.OK);
     }
 
 }

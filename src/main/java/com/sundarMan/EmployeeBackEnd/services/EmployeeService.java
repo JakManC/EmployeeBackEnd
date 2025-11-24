@@ -4,8 +4,7 @@ import com.sundarMan.EmployeeBackEnd.Models.Employee;
 
 import java.util.List;
 
-public interface EmployeeService
-{
+public interface EmployeeService {
 
     Employee registerEmployeeByS(Employee employee);
 
@@ -14,4 +13,6 @@ public interface EmployeeService
     Employee getEmployeeBYIdByS(String id);
 
     String deleteEmployeeByIDByS(String id);
+
+    Employee updateEmployeeByS(String id, Employee newEmployee);
 }
