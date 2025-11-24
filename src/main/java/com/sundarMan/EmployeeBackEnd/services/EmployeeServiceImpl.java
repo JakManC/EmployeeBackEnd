@@ -60,5 +60,12 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     }
 
+    @Override
+    public Employee getEmployeeByFNameByC(String firstName) {
+        Optional<Employee> employee = employeeRepo.findByFirstName(firstName);
+        return employee.orElse(null);
+
+    }
+
 
 }
