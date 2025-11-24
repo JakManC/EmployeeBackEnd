@@ -29,4 +29,11 @@ public class EmployeeController {
         return new ResponseEntity<>(employees, HttpStatus.OK);
     }
 
+
+    @GetMapping("/admin/getEmployeeById/{id}")
+    public ResponseEntity<Employee> getEmployeeByIdByC(@PathVariable String id) {
+        Employee foundedEmployee = employeeService.getEmployeeBYIdByS(id);
+        return new ResponseEntity<>(foundedEmployee, HttpStatus.FOUND);
+    }
+
 }

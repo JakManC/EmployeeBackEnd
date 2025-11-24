@@ -10,4 +10,6 @@ public interface EmployeeService
     Employee registerEmployeeByS(Employee employee);
 
     List<Employee> getAllEmployeesByS();
+
+    Employee getEmployeeBYIdByS(String id);
 }
